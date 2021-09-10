@@ -5,6 +5,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const todosRouter = require('./routes/todos');
+const validationRouter = require('./routes/validation');
 const kataRouter = require('./routes/kata');
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/todos', todosRouter);
+app.use('/validation', validationRouter);
 app.use('/kata', kataRouter);
 
 module.exports = app;

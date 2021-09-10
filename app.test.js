@@ -50,5 +50,74 @@ describe('Todos API', () => {
     })
     it('POST /todos --validate body request', function () {
         return request(app).post('/todos').send({name: 123}).expect(422)
+    })
+
+    it('POST /validation service with charge', () => {
+        return request(app)
+            .post('/validation/')
+            .send({warranty: 0})
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .then(
+                (response) => {
+                    expect(response.body)
+                        .toEqual(expect.objectContaining({
+                                value: '151'
+                            })
+                        )
+                }
+            )
+    })
+
+    it('POST /validation warranty', () => {
+        return request(app)
+            .post('/validation/')
+            .send({warranty: 1})
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .then(
+                (response) => {
+                    expect(response.body)
+                        .toEqual(expect.objectContaining({
+                                value: '101'
+                            })
+                        )
+                }
+            )
+    })
+
+    it('POST /validation extended warranty', () => {
+        return request(app)
+            .post('/validation/')
+            .send({warranty: 2})
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .then(
+                (response) => {
+                    expect(response.body)
+                        .toEqual(expect.objectContaining({
+                                value: '111'
+                            })
+                        )
+                }
+            )
+    })
+
+    it('POST /validation extended warranty and warranty', () => {
+        return request(app)
+            .post('/validation/')
+            .send({warranty: 3})
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .then(
+                (response) => {
+                    expect(response.body)
+                        .toEqual(expect.objectContaining({
+                                value: '111'
+                            })
+                        )
+                }
+            )
     });
+
 })

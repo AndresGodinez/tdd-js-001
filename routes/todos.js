@@ -2,12 +2,11 @@ const express = require('express');
 const router = express.Router();
 const createError = require('http-errors');
 
-const todos = [
-    {
-        id: 1,
-        name: 'do something',
-        completed: false
-    },
+const todos = [{
+    id: 1,
+    name: 'do something',
+    completed: false
+},
     {
         id: 2,
         name: 'do anything',
@@ -17,6 +16,7 @@ const todos = [
 
 router.get('/', function (req, res, next) {
     res.json(todos);
+
 });
 
 
@@ -31,7 +31,7 @@ router.get('/:id', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
     const {body} = req;
-    if (typeof body.name !== 'string'){
+    if (typeof body.name !== 'string') {
         return next(createError(422, 'the name must be string'));
     }
     const nTodo = {
