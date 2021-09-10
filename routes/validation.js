@@ -4,24 +4,19 @@ const createError = require('http-errors');
 
 router.post('/', function (req, res, next) {
     let {warranty} = req.body;
-
-
-    if (String(warranty) === '0') {
-        return res.status(200).json({value: String(151)})
+    let value;
+    switch (String(warranty)) {
+        case '0':
+            value=151;
+            break;
+        case '2':
+            value = 111;
+            break;
+        default:
+            value =101
     }
 
-    if (String(warranty) === '1') {
-        return res.status(200).json({value: String(101)})
-    }
-
-    if (String(warranty) === '2') {
-        return res.status(200).json({value: String(111)})
-    }
-
-    if (String(warranty) === '3') {
-        return res.status(200).json({value: String(111)})
-    }
-
+        return res.status(200).json({value: String(value)})
 
 });
 

@@ -113,7 +113,7 @@ describe('Todos API', () => {
                 (response) => {
                     expect(response.body)
                         .toEqual(expect.objectContaining({
-                                value: '111'
+                                value: '101'
                             })
                         )
                 }
