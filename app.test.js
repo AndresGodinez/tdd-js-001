@@ -118,6 +118,26 @@ describe('Todos API', () => {
                         )
                 }
             )
+    })
+
+    it('POST /get csrf token', () => {
+        return request(app)
+            .post('/protection/form')
+            .send()
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .then(
+                (response) => {
+                    console.log({response});
+
+                    
+                    expect(response.body)
+                        .toEqual(expect.objectContaining({
+                                value: '1'
+                            })
+                        )
+                }
+            )
     });
 
 })
