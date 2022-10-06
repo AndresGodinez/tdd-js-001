@@ -1,0 +1,18 @@
+{
+  "member": {
+    "name": "Test",
+    "surname": "QAmail",
+    "mobile_phone": "+555561399507",
+    "date_of_birth": "2000-06-30",
+    "email":"edvt_2006@hotmail.com"
+  },
+  "source": {
+    "partner_id": 34,
+    "cashier_id": "SARAJU7305171",
+    "store_id": "SLT1"
+  },
+  "medium": {
+    "type": "physical",
+    "code": "9140000000039"
+  }
+}
